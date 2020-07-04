@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tyh.bankcrawper.dao.OrderMapper">
+    <sql id="insertFields">
+        good_name, market_price, bank_name, open_price, target_price, protect_price, trade_logic, trade_history, transaction_type, create_time
+    </sql>
+
+    <sql id="selectFields">
+        id, good_name, market_price, bank_name, open_price, target_price, protect_price, trade_logic, trade_history, transaction_type, create_time
+    </sql>
+
+    <select id="selectOrderById" resultType="Order">
+        select <include refid="selectFields"></include>
+        from orders
+        where id=#{id};
+    </select>
+
+    <select id="selectNewestOrder" resultType="Order">
+        select <include refid="selectFields"></include>
+        from orders
+        where bank_name=#{bankName} and good_name=#{goodName}
+        order by create_time
+        limit 1;
+    </select>
+
+    <insert id="insertOrder" keyProperty="id" parameterType="Order">
+        insert into orders(<include refid="insertFields"></include>)
+        values (#{goodName},#{marketPrice},#{bankName},#{openPrice},#{targetPrice},#{protectPrice},
+        #{tradeLogic},#{tradeHistory},#{transactionType},#{createTime})
+    </insert>
+</mapper>
