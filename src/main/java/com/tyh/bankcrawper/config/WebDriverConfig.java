@@ -20,7 +20,7 @@ public class WebDriverConfig {
     public WebDriver WebDriverProducer(){
         System.setProperty("webdriver.gecko.driver","/Applications/Firefox.app/Contents/MacOS/geckodriver");
         FirefoxOptions options = new FirefoxOptions();
-        // options.addArguments("-headless");
+        options.addArguments("-headless");
         WebDriver webDriver = new FirefoxDriver(options);
         // webDriver.manage().window().maximize();
         // webDriver.manage().deleteAllCookies();
