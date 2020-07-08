@@ -23,7 +23,7 @@ public class WebDriverConfig {
         options.addArguments("-headless");
         WebDriver webDriver = new FirefoxDriver(options);
         // webDriver.manage().window().maximize();
-        // webDriver.manage().deleteAllCookies();
+        webDriver.manage().deleteAllCookies();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("驱动已启动！");
         return webDriver;

@@ -26,7 +26,8 @@ public class OrderClientTest implements JinshiConstants {
     private OrderClient orderClient;
 
     @Test
-    public void dataInspectTest() throws InterruptedException {
-        // orderClient.dataInspect();
+    public void dataInspectTest() throws Exception {
+        orderClient.dataInspect();
+        System.out.println("测试完成");
     }
 }

@@ -21,7 +21,7 @@
         select <include refid="selectFields"></include>
         from orders
         where bank_name=#{bankName} and good_name=#{goodName}
-        order by create_time
+        order by create_time desc
         limit 1;
     </select>
 

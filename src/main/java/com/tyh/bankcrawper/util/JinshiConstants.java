@@ -17,4 +17,9 @@ public interface JinshiConstants {
     String SEVERJIANG_SEND = ".send";
     String SEVERJIANG_TITLE = "?text=";
     String SEVERJIANG_CONTENT = "&desp=";
+
+    /**
+     * 重试次数
+     */
+    int RETRY_TIMES = 3;
 }
